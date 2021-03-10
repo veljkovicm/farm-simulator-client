@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { addBuilding } from 'redux/actions/buildings';
+import { addBuilding } from 'redux/buildings/actions';
 import { submitNewBuilding } from './actions';
 
 // Material UI

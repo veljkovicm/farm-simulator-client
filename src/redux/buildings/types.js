@@ -1,6 +1,3 @@
-export const SET_FARMS = 'SET_FARMS';
-export const ADD_FARM = 'ADD_FARM';
-
 export const SET_BUILDINGS = 'SET_BUILDINGS';
 export const ADD_BUILDING = 'ADD_BUILDING';
 

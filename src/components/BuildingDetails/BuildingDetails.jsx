@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addUnit } from 'redux/actions/buildings';
+import { addUnit } from 'redux/buildings/actions';
 import { submitNewUnit } from './actions';
 
 // Material UI

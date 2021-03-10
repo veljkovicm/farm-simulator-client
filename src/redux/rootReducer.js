@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import main from './main';
-import buildings from './buildings';
+import buildings from './buildings/reducer';
+import farms from './farms/reducer';
 
 const rootReducer = combineReducers({
-  main,
+  farms,
   buildings,
 });
 

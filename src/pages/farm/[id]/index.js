@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
 import { API } from 'libs';
-import { setBuildings } from 'redux/actions/buildings';
+import { setBuildings } from 'redux/buildings/actions';
 import { AddFarmBuilding, BuildingsList } from 'components';
 import styles from 'styles/Farm.module.css';
 

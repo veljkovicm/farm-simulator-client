@@ -1,5 +1,5 @@
 import { connect } from 'react-redux/';
-import { feedUnit } from 'redux/actions/buildings';
+import { feedUnit } from 'redux/buildings/actions';
 import { submitFeedUnit } from './actions';
 
 // Material UI

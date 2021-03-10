@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Head from 'next/head';
 import { API } from 'libs';
-import { setFarms } from 'redux/actions/main';
+import { setFarms } from 'redux/farms/actions';
 import { AddFarmInput, FarmList } from 'components';
 import styles from 'styles/Home.module.css';
 
@@ -34,7 +34,7 @@ const Home = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  farms: state.main.farms,
+  farms: state.farms.farms,
 });
 
 const mapDispatchToProps = {

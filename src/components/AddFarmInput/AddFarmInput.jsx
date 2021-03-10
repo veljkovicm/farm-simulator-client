@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { addFarm } from 'redux/actions/main';
+import { addFarm } from 'redux/farms/actions';
 import { submitFarm } from './actions';
 
 // Material UI

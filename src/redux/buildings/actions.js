@@ -1,4 +1,4 @@
-import * as t from '../types';
+import * as t from './types';
 
 export const setBuildings = (buildings) => ({
   type: t.SET_BUILDINGS,
