@@ -6,7 +6,7 @@ export const submitNewUnit = async (buildingId) => {
 
     const response = await API({
       method: 'POST',
-      path: '/units',
+      path: process.env.API_UNITS_PATH,
       body,
     });
 

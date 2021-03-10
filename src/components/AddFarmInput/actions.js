@@ -7,7 +7,7 @@ export const submitFarm = async (name) => {
 
     const response = await API({
       method: 'POST',
-      path: '/farms',
+      path: process.env.API_FARMS_PATH,
       body,
     });
 

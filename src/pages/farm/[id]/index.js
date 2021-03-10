@@ -39,7 +39,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Farm);
 export const getServerSideProps = async (context) => {
   const res = await API({
     method: 'GET',
-    path: 'building',
+    path: process.env.API_BUILDING_PATH,
     params: { id: context.params.id },
   });
 

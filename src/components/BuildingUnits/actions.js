@@ -6,7 +6,7 @@ export const submitFeedUnit = async (id) => {
 
     const response = await API({
       method: 'PATCH',
-      path: '/units',
+      path: process.env.API_UNITS_PATH,
       body,
     });
 

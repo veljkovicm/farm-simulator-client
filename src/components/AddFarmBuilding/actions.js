@@ -15,7 +15,7 @@ export const submitNewBuilding = async ({
 
     const response = await API({
       method: 'POST',
-      path: '/building',
+      path: process.env.API_BUILDING_PATH,
       body,
     });
 

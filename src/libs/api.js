@@ -11,7 +11,7 @@ const apiCall = async ({
     const url = path;
 
     const response = await axios({
-      baseURL: 'http://localhost:5000/',
+      baseURL: process.env.SERVER_URL,
       url,
       params,
       method,

@@ -44,7 +44,7 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
 export const getStaticProps = async () => {
-  const { data: fetchedFarms } = await API({ method: 'GET', path: 'farms' });
+  const { data: fetchedFarms } = await API({ method: 'GET', path: process.env.API_FARMS_PATH });
 
   return {
     props: {
