@@ -1,11 +1,12 @@
+import { BuildingDetails, BuildingUnits } from 'components';
+
+// Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import BuildingDetails from './BuildingDetails/BuildingDetails';
-import BuildingUnits from './BuildingUnits/BuildingUnits';
 
 const BuildingList = ({ buildings }) => {
   const classes = useStyles();

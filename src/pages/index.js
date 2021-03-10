@@ -1,11 +1,11 @@
-import Head from 'next/head';
-import { connect } from 'react-redux';
 import { useEffect } from 'react';
-import styles from '../styles/Home.module.css';
-import { setFarms } from '../redux/actions/main';
-import { API } from '../libs';
-import AddFarmInput from '../components/AddFarmInput/AddFarmInput';
-import FarmList from '../components/FarmList';
+import { connect } from 'react-redux';
+import Head from 'next/head';
+import { API } from 'libs';
+import { setFarms } from 'redux/actions/main';
+import { AddFarmInput, FarmList } from 'components';
+import styles from 'styles/Home.module.css';
+
 
 const Home = (props) => {
   const {

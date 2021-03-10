@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
+import { addBuilding } from 'redux/actions/buildings';
+import { submitNewBuilding } from './actions';
+
+// Material UI
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { addBuilding } from '../../redux/actions/buildings';
-import { submitNewBuilding } from './actions';
 
 const AddBuildingInput = ({ addBuilding, farmId }) => {
 

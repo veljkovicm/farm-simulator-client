@@ -1,4 +1,4 @@
-import { API } from '../../libs';
+import { API } from 'libs';
 
 export const submitFeedUnit = async (id) => {
   try {

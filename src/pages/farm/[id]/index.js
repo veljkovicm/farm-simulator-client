@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
-import { API } from '../../../libs';
-import styles from '../../../styles/Farm.module.css';
-import { setBuildings } from '../../../redux/actions/buildings';
-import BuildingsList from '../../../components/BuildingsList';
-import AddFarmBuilding from '../../../components/AddFarmBuilding/AddFarmBuilding';
+import { API } from 'libs';
+import { setBuildings } from 'redux/actions/buildings';
+import { AddFarmBuilding, BuildingsList } from 'components';
+import styles from 'styles/Farm.module.css';
+
 
 const Farm = (props) => {
   const {

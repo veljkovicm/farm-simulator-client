@@ -1,4 +1,4 @@
-import { API } from '../../libs';
+import { API } from 'libs';
 
 export const submitNewUnit = async (buildingId) => {
   try {
