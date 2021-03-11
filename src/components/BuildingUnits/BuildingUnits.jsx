@@ -1,8 +1,5 @@
 import { connect } from 'react-redux/';
 import { feedUnit } from 'redux/buildings/actions';
-import { submitFeedUnit } from './actions';
-
-// Material UI
 import TableContainer from '@material-ui/core/TableContainer';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,7 +9,7 @@ import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
 import TableRow from '@material-ui/core/TableRow';
 import TableHead from '@material-ui/core/TableHead';
-
+import { submitFeedUnit } from './actions';
 
 const useStyles = makeStyles({
   container: {
@@ -26,14 +23,14 @@ const BuildingUnits = ({ units, feedUnit }) => {
   const handleClick = async (id, i) => {
     submitFeedUnit(id).then((res) => {
       if (!res.error) {
-        feedUnit({ index: i, unit: res })
+        feedUnit({ index: i, unit: res });
       }
     });
-  }
+  };
 
-  let unitsMarkup = <h4 style={{ paddingLeft: '10px'}}>This building doesn' have any units yet</h4>;
+  let unitsMarkup = <h4 style={{ paddingLeft: '10px' }}>This building does not have any units yet</h4>;
 
-  if(units.length) {
+  if (units.length) {
     unitsMarkup = units.map((unit, i) => (
       <TableRow key={unit.id}>
         <TableCell component="th" scope="row">{unit.name}</TableCell>
@@ -49,31 +46,31 @@ const BuildingUnits = ({ units, feedUnit }) => {
           </Button>
         </TableCell>
       </TableRow>
-    ))
+    ));
   }
 
   return (
     <div>
-      <TableContainer component={Paper} style={{ marginLeft: '50px'}}>
-      <Table className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Health</TableCell>
-            <TableCell align="center">Feed</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {unitsMarkup}
-        </TableBody>
-      </Table>
-    </TableContainer>
+      <TableContainer component={Paper} style={{ marginLeft: '50px' }}>
+        <Table className={classes.table}>
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell align="right">Health</TableCell>
+              <TableCell align="center">Feed</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {unitsMarkup}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
-}
+};
 
 const mapDispatchToProps = {
   feedUnit,
-}
+};
 
 export default connect(null, mapDispatchToProps)(BuildingUnits);

@@ -26,6 +26,15 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["components", "./src/components"],
+          ["redux", "./src/redux"],
+          ["lib", "./lib"]
+        ]
+      }
     }
   },
   "plugins": [],
@@ -45,6 +54,10 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "no-case-declarations": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "no-nested-ternary": "off",
+    "no-console": "off",
+    "no-shadow": "off",
     "comma-dangle": [
       "error", // Minify git diffs
       {

@@ -8,13 +8,23 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
+  },
+}));
+
 const BuildingList = ({ buildings }) => {
   const classes = useStyles();
   let buildingsMarkup = 'This farm doesn\'t have any buildings yet';
 
-  if(Object.keys(buildings).length) {
-    buildingsMarkup = Object.values(buildings).map((building) => {
-      return <Accordion key={building.id}>
+  if (Object.keys(buildings).length) {
+    buildingsMarkup = Object.values(buildings).map((building) => (
+      <Accordion key={building.id}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -29,20 +39,9 @@ const BuildingList = ({ buildings }) => {
           <BuildingUnits units={building.units} />
         </AccordionDetails>
       </Accordion>
-    });
+    ));
   }
   return buildingsMarkup;
-}
-
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
-}));
+};
 
 export default BuildingList;

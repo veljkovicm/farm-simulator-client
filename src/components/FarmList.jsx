@@ -10,6 +10,12 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
+
 const FarmList = ({ farms }) => {
   const classes = useStyles();
   return (
@@ -26,12 +32,12 @@ const FarmList = ({ farms }) => {
             {
               farms.map((farm) => (
                 <TableRow key={farm.id}>
-                    <TableCell component="th" scope="row">
-                      <div>
-                        <FarmItem farm={farm}/>
-                      </div>
-                    </TableCell>
-                    <TableCell align="right">{farm.id}</TableCell>
+                  <TableCell component="th" scope="row">
+                    <div>
+                      <FarmItem farm={farm} />
+                    </div>
+                  </TableCell>
+                  <TableCell align="right">{farm.id}</TableCell>
                 </TableRow>
               ))
             }
@@ -39,13 +45,7 @@ const FarmList = ({ farms }) => {
         </Table>
       </TableContainer>
     </>
-  )
-}
-
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
+  );
+};
 
 export default FarmList;

@@ -1,8 +1,5 @@
 import { connect } from 'react-redux';
 import { addUnit } from 'redux/buildings/actions';
-import { submitNewUnit } from './actions';
-
-// Material UI
 import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -11,14 +8,15 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { submitNewUnit } from './actions';
 
 const BuildingDetails = ({ building, addUnit }) => {
   const handleClick = async (id) => {
     submitNewUnit(id)
-    .then((res) => {
-      addUnit(res);
-    });
-  }
+      .then((res) => {
+        addUnit(res);
+      });
+  };
 
   return (
     <>
@@ -40,21 +38,21 @@ const BuildingDetails = ({ building, addUnit }) => {
                 <Button
                   variant="contained"
                   color="primary"
-                  onClick={() => handleClick(building.id)}  
+                  onClick={() => handleClick(building.id)}
                 >
-                ADD UNIT
-              </Button>
+                  ADD UNIT
+                </Button>
               </TableCell>
             </TableRow>
           </TableBody>
         </Table>
       </TableContainer>
     </>
-  )
-}
+  );
+};
 
 const mapDispatchToProps = {
   addUnit,
-}
+};
 
 export default connect(null, mapDispatchToProps)(BuildingDetails);
