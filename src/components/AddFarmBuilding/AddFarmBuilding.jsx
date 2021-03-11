@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addBuilding } from 'redux/buildings/actions';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { submitNewBuilding } from './actions';
 
-const AddBuildingInput = ({ addBuilding, farmId }) => {
+const AddBuildingInput = ({ farmId }) => {
   const [ name, setName ] = useState('');
   const [ farmUnit, setFarmUnit ] = useState('');
+
+  const dispatch = useDispatch();
 
   const handleChange = (setValue) => (e) => {
     setValue(e.target.value);
@@ -21,7 +23,7 @@ const AddBuildingInput = ({ addBuilding, farmId }) => {
       farmUnit,
     })
       .then((res) => {
-        addBuilding(res);
+        dispatch(addBuilding(res));
         setName('');
         setFarmUnit('');
       });
@@ -58,8 +60,4 @@ const AddBuildingInput = ({ addBuilding, farmId }) => {
   );
 };
 
-const mapDispatchToProps = {
-  addBuilding,
-};
-
-export default connect(null, mapDispatchToProps)(AddBuildingInput);
+export default AddBuildingInput;

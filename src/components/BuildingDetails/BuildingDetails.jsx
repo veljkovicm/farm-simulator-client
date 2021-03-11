@@ -1,4 +1,4 @@
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addUnit } from 'redux/buildings/actions';
 import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
@@ -10,11 +10,13 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { submitNewUnit } from './actions';
 
-const BuildingDetails = ({ building, addUnit }) => {
+const BuildingDetails = ({ building }) => {
+  const dispatch = useDispatch();
+
   const handleClick = async (id) => {
     submitNewUnit(id)
       .then((res) => {
-        addUnit(res);
+        dispatch(addUnit(res));
       });
   };
 
@@ -51,8 +53,4 @@ const BuildingDetails = ({ building, addUnit }) => {
   );
 };
 
-const mapDispatchToProps = {
-  addUnit,
-};
-
-export default connect(null, mapDispatchToProps)(BuildingDetails);
+export default BuildingDetails;

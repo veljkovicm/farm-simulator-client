@@ -1,7 +1,7 @@
 import * as t from './types';
 
 const buildings = (state = {
-  buildings: []
+  buildings: {}
 }, action) => {
   switch (action.type) {
     case t.SET_BUILDINGS:

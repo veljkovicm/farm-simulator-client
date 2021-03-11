@@ -1,5 +1,4 @@
 import { BuildingDetails, BuildingUnits } from 'components';
-import _ from 'lodash';
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -20,10 +19,8 @@ const useStyles = makeStyles((theme) => ({
 const BuildingList = ({ buildings }) => {
   const classes = useStyles();
   let buildingsMarkup;
-  if (buildings.length === 0) {
-    buildingsMarkup = <h4>This farm doesn't have any buildings yet</h4>;
-  } else {
-    buildingsMarkup = Object.values(_.keyBy(buildings, 'id')).map((building) => (
+  if (Object.keys(buildings).length > 0) {
+    buildingsMarkup = Object.values(buildings).map((building) => (
       <Accordion key={building.id}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -40,6 +37,8 @@ const BuildingList = ({ buildings }) => {
         </AccordionDetails>
       </Accordion>
     ));
+  } else {
+    buildingsMarkup = <h4>This farm doesn't have any buildings yet</h4>;
   }
 
   return buildingsMarkup;

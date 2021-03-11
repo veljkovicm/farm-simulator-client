@@ -1,4 +1,4 @@
-import { connect } from 'react-redux/';
+import { useDispatch } from 'react-redux/';
 import { feedUnit } from 'redux/buildings/actions';
 import TableContainer from '@material-ui/core/TableContainer';
 import Button from '@material-ui/core/Button';
@@ -18,12 +18,13 @@ const useStyles = makeStyles({
   },
 });
 
-const BuildingUnits = ({ units, feedUnit }) => {
+const BuildingUnits = ({ units }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const handleClick = async (id, i) => {
     submitFeedUnit(id).then((res) => {
       if (!res.error) {
-        feedUnit({ index: i, unit: res });
+        dispatch(feedUnit({ index: i, unit: res }));
       }
     });
   };
@@ -69,8 +70,4 @@ const BuildingUnits = ({ units, feedUnit }) => {
   );
 };
 
-const mapDispatchToProps = {
-  feedUnit,
-};
-
-export default connect(null, mapDispatchToProps)(BuildingUnits);
+export default BuildingUnits;

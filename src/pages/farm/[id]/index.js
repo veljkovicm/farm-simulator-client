@@ -1,4 +1,5 @@
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import _ from 'lodash';
 import { useEffect } from 'react';
 import { API } from 'libs';
 import { setBuildings } from 'redux/buildings/actions';
@@ -6,16 +7,13 @@ import { AddFarmBuilding, BuildingsList } from 'components';
 import styles from 'styles/Farm.module.css';
 
 
-const Farm = (props) => {
-  const {
-    fetchedBuildings,
-    setBuildings,
-    buildings,
-    farmId,
-  } = props;
+const Farm = ({ fetchedBuildings, farmId }) => {
+  const dispatch = useDispatch();
+  const buildings = useSelector(state => state.buildings.buildings);
+  
 
   useEffect(() => {
-    setBuildings(fetchedBuildings);
+    dispatch(setBuildings(_.keyBy(fetchedBuildings, 'id')));
   }, [ fetchedBuildings, setBuildings ]);
 
   return (
@@ -26,15 +24,7 @@ const Farm = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  buildings: state.buildings.buildings,
-});
-
-const mapDispatchToProps = {
-  setBuildings,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Farm);
+export default Farm;
 
 export const getServerSideProps = async (context) => {
   const res = await API({

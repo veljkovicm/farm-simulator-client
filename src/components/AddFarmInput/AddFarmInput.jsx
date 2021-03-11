@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addFarm } from 'redux/farms/actions';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { submitFarm } from './actions';
 
-const AddFarmInput = ({ addFarm }) => {
+const AddFarmInput = () => {
   const [ name, setName ] = useState('');
+
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setName(e.target.value);
@@ -18,7 +20,7 @@ const AddFarmInput = ({ addFarm }) => {
     submitFarm(name)
       .then((res) => {
         if (!res.error) {
-          addFarm({ name: res.name, id: res.id });
+          dispatch(addFarm({ name: res.name, id: res.id }));
         }
         console.log(res.error);
         setName('');
@@ -54,8 +56,4 @@ const AddFarmInput = ({ addFarm }) => {
   );
 };
 
-const mapDispatchToProps = {
-  addFarm,
-};
-
-export default connect(null, mapDispatchToProps)(AddFarmInput);
+export default AddFarmInput;
