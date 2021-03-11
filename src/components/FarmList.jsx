@@ -18,6 +18,24 @@ const useStyles = makeStyles({
 
 const FarmList = ({ farms }) => {
   const classes = useStyles();
+  let farmsList;
+
+  if (farms.length) {
+    farmsList = (
+      farms.map((farm) => (
+        <TableRow key={farm.id}>
+          <TableCell component="th" scope="row">
+            <div>
+              <FarmItem farm={farm} />
+            </div>
+          </TableCell>
+          <TableCell align="right">{farm.id}</TableCell>
+        </TableRow>
+      ))
+    )
+  } else {
+    farmsList = <h4 style={{ paddingLeft: '15px' }}>No farms added yet.</h4>
+  }
   return (
     <>
       <TableContainer component={Paper}>
@@ -29,18 +47,7 @@ const FarmList = ({ farms }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {
-              farms.map((farm) => (
-                <TableRow key={farm.id}>
-                  <TableCell component="th" scope="row">
-                    <div>
-                      <FarmItem farm={farm} />
-                    </div>
-                  </TableCell>
-                  <TableCell align="right">{farm.id}</TableCell>
-                </TableRow>
-              ))
-            }
+            {farmsList}
           </TableBody>
         </Table>
       </TableContainer>

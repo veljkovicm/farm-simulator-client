@@ -45,6 +45,7 @@ const AddFarmInput = ({ addFarm }) => {
           variant="contained"
           color="primary"
           onClick={handleSubmit}
+          disabled={!name}
         >
           Add Farm
         </Button>
